@@ -1,0 +1,57 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In & Sign Up Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-signin-up">
+    <h2>Sign In</h2>
+    <form>
+        <div class="input">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" required> <br><br>
+
+            <label>Password</label>
+            <input type="password"  placeholder="Enter your password" required><br><br>
+        </div>
+        <button type="submit" onclick="alert('signin successfully')">Sign In</button>
+    </form>
+
+    <hr>
+
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+        <div class="input-form" class="input">
+            <label>Username</label>
+            <input type="text"  placeholder="Choose a username" required> <br><br>
+
+            <label>Email</label>
+            <input type="email"  placeholder="Enter your email" required> <br><br>
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Create a password" required> <br><br>
+            <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+        </div>
+        <button type="submit" onclick="alert('signup registered successfully')">Sign Up</button>
+    </form>
+</div>
+
+ <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            var pass = document.getElementById('password').value;
+            var confirmPass = document.getElementById('confirmPassword').value;
+
+            if (pass !== confirmPass) {
+                event.preventDefault(); // Prevents the form from submitting and reloading
+                alert('Passwords do not match! Please try again.');
+            } else {
+                alert('Signup registered successfully!');
+            }
+        });
+    </script>
+
+</body>
+</html>
