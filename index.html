@@ -1,58 +1,207 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign In & Sign Up Form</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Elements Practice</title>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: lightgray;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    margin: 0;
+}
+
+.main {
+    background-color: white;
+
+    width: 500px;
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 10px gray;
+}
+
+h2 {
+    text-align: center;
+    color: navy;
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="datetime-local"] {
+
+    width: 100%;
+    padding: 10px;
+
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.inline {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.button-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+
+    border: none;
+    border-radius: 5px;
+
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    background-color: green;
+}
+
+button[type="reset"] {
+    background-color: red;
+}
+
+button[type="submit"]:hover {
+    background-color: darkgreen;
+}
+
+button[type="reset"]:hover {
+    background-color: darkred;
+}
+    </style>
+
+
 </head>
+
 <body>
 
-<div class="form-signin-up">
-    <h2>Sign In</h2>
-    <form>
-        <div class="input">
-            <label>Username</label>
-            <input type="email" placeholder="Enter your username / email" required> <br><br>
+    <div class="main">
+        <h2>Registration Form</h2>
 
-            <label>Password</label>
-            <input type="password"  placeholder="Enter your password" required><br><br>
-        </div>
-        <button type="submit" onclick="alert('signin successfully')">Sign In</button>
-    </form>
+        <form action="#" method="POST">
 
-    <hr>
 
-    <h2>Sign Up</h2>
-    <form id="signupForm">
-        <div class="input-form" class="input">
-            <label>Username</label>
-            <input type="text"  placeholder="Choose a username" required> <br><br>
+            <div class="input-box">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
 
-            <label>Email</label>
-            <input type="email"  placeholder="Enter your email" required> <br><br>
+            <div class="input-box">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
 
-            <label>Password</label>
-            <input type="password" id="password" placeholder="Create a password" required> <br><br>
-            <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
-        </div>
-        <button type="submit" onclick="alert('signup registered successfully')">Sign Up</button>
-    </form>
-</div>
 
- <script>
-        document.getElementById('signupForm').addEventListener('submit', function(event) {
-            var pass = document.getElementById('password').value;
-            var confirmPass = document.getElementById('confirmPassword').value;
+            <div class="input-box">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="your-name@gmail.com" required>
+            </div>
 
-            if (pass !== confirmPass) {
-                event.preventDefault(); // Prevents the form from submitting and reloading
-                alert('Passwords do not match! Please try again.');
-            } else {
-                alert('Signup registered successfully!');
-            }
-        });
-    </script>
+
+            <div class="input-box">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="1234567890" required>
+            </div>
+
+
+            <div class="input-box">
+                <label for="website">Personal Website / Portfolio:</label>
+                <input type="url" id="website" name="website" placeholder="https://websitename.com" required>
+            </div>
+
+
+            <div class="input-box">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+
+            <div class="input-box">
+                <label for="appointment">Schedule Interview Slot:</label>
+                <input type="datetime-local" id="appointment" name="appointment" required>
+            </div>
+
+
+            <div class="input-box">
+                <label>Account Type:</label>
+                <div class="inline">
+                    <input type="radio" id="personal" name="account-type" value="personal" required>
+                    <label for="personal" style="display:inline; font-weight:normal;">Personal</label>
+                </div>
+                <div class="inline">
+                    <input type="radio" id="business" name="account-type" value="business">
+                    <label for="business" style="display:inline; font-weight:normal;">Public</label>
+                </div>
+            </div>
+
+
+            <div class="input-box">
+                <div class="inline">
+                    <input type="checkbox" id="terms" name="terms" value="agreed" required>
+                    <label for="terms" style="display:inline; font-weight:normal;">I agree to the Terms of
+                        Service</label>
+                </div>
+            </div>
+
+
+            <div class="input-box">
+                <label for="resume">Upload Resume (PDF):</label>
+                <input type="file" id="resume" name="resume" required>
+            </div>
+
+
+            <div class="input-box">
+                <label for="experience">Experience Level:</label>
+                <input type="range" id="experience" name="experience" min="0" max="10" step="1" value="0">
+            </div>
+
+
+            <div class="input-box">
+                <label for="theme">Choose Profile Theme Color:</label>
+                <input type="color" id="theme" name="theme" value="#3498db">
+            </div>
+
+
+            <div class="button-box">
+                <button type="submit">Submit Form</button>
+                <button type="reset">Reset Form</button>
+            </div>
+
+        </form>
+    </div>
 
 </body>
-</html>
+
+</html
